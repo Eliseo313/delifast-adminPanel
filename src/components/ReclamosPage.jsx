@@ -13,7 +13,7 @@ export default function ReclamosPage() {
       try {
         setCargando(true)
         setError('')
-        
+
         //console.log('Token almacenado: ', JSON.parse(localStorage.getItem('userAP')).vToken);
         const response = await fetch(`${URL_BASE}/obtenerReclamos`, {
           method: 'GET',
@@ -25,7 +25,7 @@ export default function ReclamosPage() {
 
         const res = await response.json()
 
-        if (res.status === true) {
+        if (res.status === 200) {
           setReclamos(res.data || [])
           console.log('Reclamos obtenidos: ', res.data);
         } else {
