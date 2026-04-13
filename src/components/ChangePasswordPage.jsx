@@ -34,7 +34,7 @@ function ChangePasswordPage() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization' : `Bearer ${user?.token}`,
+              'Authorization': `Bearer ${user?.token}`,
             },
             body: datosJSON,
           }
@@ -46,11 +46,11 @@ function ChangePasswordPage() {
         if (result.status === 200) {
           console.log('Contraseña cambiada exitosamente');
           setMensajeInformativo('Contraseña cambiada exitosamente');
-          
+
           setTimeout(() => {
-            navigate(`/adminPanel`);
-          },2000);
-          
+            navigate(`/`);
+          }, 2000);
+
         } else {
           console.log('Error(else): ', result.message);
           setMensajeError(` ${result.message} ` || 'Error al cambiar la contraseña. Por favor, inténtalo nuevamente.');

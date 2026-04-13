@@ -1,4 +1,4 @@
-import { createContext, useState, useContext,useEffect } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import URL_BASE from '../../config/config';
 
 const AuthContext = createContext();
@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // null significa que el usuario no está autenticado.
   const [mensajeError, setMensajeError] = useState('');
 
-  const login = async(correo, password) => {
+  const login = async (correo, password) => {
     try {
       const datos = {
         loginInput: correo,
@@ -35,8 +35,8 @@ export const AuthProvider = ({ children }) => {
           // navigate(`/home/${data.idRestaurante}`);
           setUser(data);
 
-          console.log("correo: ",correo);
-          localStorage.setItem('userAP', JSON.stringify({ correo: correo,nombre: data.vNombre,vToken:data.vToken })); // Guardar en localStorage
+          console.log("correo: ", correo);
+          localStorage.setItem('userAP', JSON.stringify({ correo: correo, nombre: data.vNombre, vToken: data.vToken })); // Guardar en localStorage
           return res;
         } else {
           console.log('error(else1): ', res.message);
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser.correo); // Restaurar el usuario
-      console.log('usuario localStorage(AuthContext.jsx): ',parsedUser);
+      console.log('usuario localStorage(AuthContext.jsx): ', parsedUser);
     }
   }, []);
 

@@ -16,11 +16,11 @@ export default function Header({ onToggleSidebar }) {
 
   const handleLogout = () => {
     localStorage.removeItem('adminAuth'); // Borra el usuario del localStorage
-    navigate('/adminPanel'); // Redirige al login
+    navigate('/'); // Redirige al login
   };
 
   const handleChangePassword = () => {
-    navigate('/adminPanel/change-password'); // Redirige al componente ChangePassword.jsx
+    navigate('/change-password'); // Redirige al componente ChangePassword.jsx
   };
 
   const handleToggleSidebar = (e) => {

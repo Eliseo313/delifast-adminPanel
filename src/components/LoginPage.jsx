@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "./context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
@@ -17,7 +17,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     if (enviando) return; // Previene múltiples clics
     setEnviando(true);
 
@@ -25,20 +25,20 @@ export default function Login() {
       const data = await login(correo, password); // Llama a la función `login` y espera los datos.
       console.log('data(LoginPage): ', data);
 
-      if(data.status == 200){
+      if (data.status == 200) {
         // Si todo es exitoso, navega a la página principal.
         setEnviando(false);
         setMensajeInformativo(data.message);
         setTimeout(() => {
-          navigate('/adminPanel/home');
-        },2000);
-        
-      }else{
+          navigate('/home');
+        }, 2000);
+
+      } else {
         setEnviando(false);
         setMensajeError(data.message);
       }
 
-      
+
     } catch (err) {
       // Maneja errores específicos.
       setMensajeError(err.message);
@@ -72,15 +72,14 @@ export default function Login() {
           />
           <button
             type="button"
-            className={`w-full py-3 rounded-md transition text-white ${
-              enviando ? 'bg-red-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'
-            }`}
+            className={`w-full py-3 rounded-md transition text-white ${enviando ? 'bg-red-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'
+              }`}
             //onClick={handleSubmit}
-            onClick={(e) => { 
-              e.preventDefault(); 
+            onClick={(e) => {
+              e.preventDefault();
               e.stopPropagation(); // evita que otros listeners globales lo capturen 
-              handleSubmit(e); 
-              }}
+              handleSubmit(e);
+            }}
             disabled={enviando}
           >
             {enviando ? 'Procesando...' : 'Entrar'}
@@ -91,7 +90,7 @@ export default function Login() {
       </div>
       <ToastContainer />
       <MensajeError mensajeError={mensajeError} setMensajeError={setMensajeError} />
-      <MensajeInformativo mensajeInformativo={mensajeInformativo} setMensajeInformativo={setMensajeInformativo}/>
+      <MensajeInformativo mensajeInformativo={mensajeInformativo} setMensajeInformativo={setMensajeInformativo} />
     </>
   );
 }

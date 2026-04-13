@@ -6,7 +6,7 @@ export default function PrivateRoute({ children }) {
   const storedUser = localStorage.getItem('userAP');
 
   if (!user && !storedUser) {
-    return <Navigate to="/adminPanel" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;

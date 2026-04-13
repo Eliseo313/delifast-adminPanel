@@ -12,11 +12,11 @@ function App() {
     <AuthProvider>
       <Routes>
         {/* Login */}
-        <Route path="/adminPanel" element={<Login />} />
+        <Route path="/" element={<Login />} />
 
         {/* Layout protegido */}
         <Route
-          path="/adminPanel"
+          path="/"
           element={
             <PrivateRoute>
               <HomeLayout />
