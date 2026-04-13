@@ -57,7 +57,7 @@ export default function Header({ onToggleSidebar }) {
         >
           <FontAwesomeIcon icon={faBars} size="lg" />
         </button>
-        <h1 className="text-lg font-semibold text-gray-800">Soporte Técnico - Delifast</h1>
+        <h1 className="text-lg font-semibold text-gray-800">Soporte Técnico - DeliSync</h1>
       </div>
       {/* Menú derecha (icono + dropdown) */}
       <div className='flex flex-col justify-center sm:flex-row md:flex-row lg:flex-row xl:flex-row space-x-4'>
