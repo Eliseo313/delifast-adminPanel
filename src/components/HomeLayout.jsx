@@ -33,23 +33,23 @@ export default function HomeLayout() {
   }, [sidebarOpen]);
 
   return (
-    <div className="flex h-screen relative">
-      {/* Overlay oscuro en móvil cuando sidebar está abierta - semi-transparente para ver contenido */}
+    <div className="flex min-h-screen bg-[#F8FAFC] relative">
+      {/* Overlay oscuro en móvil cuando sidebar está abierta */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30 z-30 lg:hidden"
+          className="fixed inset-0 bg-slate-900/30 backdrop-blur-[2px] z-30 lg:hidden transition-opacity"
           onClick={closeSidebar}
         />
       )}
 
       <div ref={sidebarRef}>
-        <Sidebar isOpen={sidebarOpen} />
+        <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
       </div>
 
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 min-w-0">
         <Header onToggleSidebar={toggleSidebar} />
-        <main className="p-4 overflow-y-auto">
-          <Outlet /> {/* Aquí se renderiza ReclamosPage, Settings, ChangePassword */}
+        <main className="p-4 sm:p-6 lg:p-8 flex-1 overflow-y-auto max-w-7xl w-full mx-auto">
+          <Outlet />
         </main>
       </div>
     </div>
