@@ -8,6 +8,7 @@ import Settings from "./components/SettingsPage";
 import ChangePasswordPage from "./components/ChangePasswordPage";
 import MetricasAdminPage from "./components/MetricasAdminPage";
 import LiquidacionesAdminPage from "./components/LiquidacionesAdminPage";
+import ServidorInfraestructuraPage from "./components/ServidorInfraestructuraPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         >
           {/* Hijas dentro del layout */}
           <Route path="metricas" element={<MetricasAdminPage />} />
+          <Route path="servidor" element={<ServidorInfraestructuraPage />} />
           <Route path="liquidaciones" element={<LiquidacionesAdminPage />} />
           <Route path="home" element={<ReclamosPage />} />
           <Route path="settings" element={<Settings />} />

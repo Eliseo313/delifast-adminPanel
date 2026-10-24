@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInbox, faGear, faShieldHalved, faXmark, faChartPie, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons';
+import { faInbox, faGear, faShieldHalved, faXmark, faChartPie, faMoneyBillWave, faServer } from '@fortawesome/free-solid-svg-icons';
 
 export default function Sidebar({ isOpen, onClose }) {
   const navItems = [
     { to: '/metricas', label: 'Panel y Métricas', icon: faChartPie },
+    { to: '/servidor', label: 'Servidor e Infraestructura', icon: faServer },
     { to: '/liquidaciones', label: 'Liquidaciones', icon: faMoneyBillWave },
     { to: '/home', label: 'Reclamos y Tickets', icon: faInbox },
     { to: '/settings', label: 'Configuración', icon: faGear },
